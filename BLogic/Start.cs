@@ -257,7 +257,7 @@ namespace StartCsharp1.BLogic
 
         static void EmployeesHandler()
         {
-            // creare un menu di gestione dipendenti
+            // creare un menu di gestione dei dipendenti 
             Employee employee = new();
         }
 
