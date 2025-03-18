@@ -70,6 +70,7 @@ namespace StartCsharp1.BLogic
                 Console.WriteLine("1. Esecuzione metodi classe Iterations");
                 Console.WriteLine("2. Esecuzione metodi classe DemoArrayList");
                 Console.WriteLine("3. Test Enumerators");
+                Console.WriteLine("4. Gestione Employees");
                 Console.WriteLine("9. Chiudi l'applicazione.");
                 Console.WriteLine();
                 Console.ForegroundColor = ConsoleColor.Blue;
@@ -89,11 +90,14 @@ namespace StartCsharp1.BLogic
                         case MainEnumerators.MenuItems.Iterations:
                             Iterations();
                             break;
-                        case MainEnumerators.MenuItems.DemoArayList:
+                        case MainEnumerators.MenuItems.DemoArrayList:
                             DemoArrayList();
                             break;
                         case MainEnumerators.MenuItems.TestEnums:
                             DemoEnums();
+                            break;
+                        case MainEnumerators.MenuItems.Employees:
+                            EmployeeMenu(); //gestire dipendenti menu
                             break;
                         case MainEnumerators.MenuItems.ExitProgram:
                             return;
@@ -110,13 +114,70 @@ namespace StartCsharp1.BLogic
         }
 
         /// <summary>
-        /// DemoEnums
+        /// EmployeeMenu
         /// </summary>
-        static void DemoEnums()
+        static void EmployeeMenu()
         {
-            EnumsTest.CarEnums();
-        }
+            string employeeHeader = "MENU GESTIONE DIPENDENTI";
+            string? employeeMenuChoice = string.Empty;
 
+            while (employeeMenuChoice != "9")
+            {
+                Console.Clear();
+                Console.WriteLine(new string('-', employeeHeader.Length + 1));
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine($"{employeeHeader}");
+                Console.ResetColor();
+                Console.WriteLine(new string('-', employeeHeader.Length + 1));
+                Console.ForegroundColor = ConsoleColor.Yellow;
+                Console.WriteLine("1. Aggiungi dipendente");
+                Console.WriteLine("2. Elimina dipendente");
+                Console.WriteLine("3. Modifica dipendente");
+                Console.WriteLine("4. Visualizza dipendenti");
+                Console.WriteLine("9. Esci");
+                Console.WriteLine();
+                Console.ForegroundColor = ConsoleColor.Blue;
+                Console.Write("Scegliere la funzione da eseguire: ");
+                Console.ResetColor();
+
+                employeeMenuChoice = Console.ReadLine().ToUpper();
+
+                // try to convert the string to an int, if it fails, it returns false
+                bool resultChoice = int.TryParse(employeeMenuChoice, out int employeeMenuItems);
+
+                if (employeeMenuItems > 0)
+                {
+                    switch ((MainEnumerators.EmployeeMenuItems)employeeMenuItems)
+                    {
+                        case MainEnumerators.EmployeeMenuItems.AddEmployee:
+                            //AddEmployee();
+                            break;
+                        case MainEnumerators.EmployeeMenuItems.RemoveEmployee:
+                            //RemoveEmployee();
+                            break;
+                        case MainEnumerators.EmployeeMenuItems.ModifyEmployee:
+                            //ModifyEmployee();
+                            break;
+                        case MainEnumerators.EmployeeMenuItems.SearchEmployee:
+                            //SearchEmployee(); //gestire dipendenti menu
+                            break;
+                        case MainEnumerators.EmployeeMenuItems.ExitProgram:
+                            return;
+                    }
+                }
+
+                if ((MainEnumerators.EmployeeMenuItems)employeeMenuItems != MainEnumerators.EmployeeMenuItems.ExitProgram)
+                {
+                    Console.ForegroundColor = ConsoleColor.Cyan;
+                    Console.WriteLine("Premere il tasto INVIO per continuare");
+                    Console.ResetColor();
+                    Console.ReadLine();
+                }
+            }
+
+
+        }
+        
         /// <summary>
         /// NameValidator
         /// </summary>
@@ -143,6 +204,14 @@ namespace StartCsharp1.BLogic
                 return false;
             }
 
+        }
+        
+        /// <summary>
+        /// DemoEnums
+        /// </summary>
+        static void DemoEnums()
+        {
+            EnumsTest.CarEnums();
         }
 
         /// <summary>
@@ -183,8 +252,14 @@ namespace StartCsharp1.BLogic
             ArrayAndList arrayAndList = new ArrayAndList();
             arrayAndList.PrintArray();
             arrayAndList.PrintListValues();
+            arrayAndList.StringManipulation();
         }
 
+        static void EmployeesHandler()
+        {
+            // creare un menu di gestione dipendenti
+            Employee employee = new();
+        }
 
         #endregion
     }

@@ -6,17 +6,27 @@ using System.Threading.Tasks;
 
 namespace StartCsharp1.DataModels
 {
-    class MainEnumerators
+    public class MainEnumerators
     {
-        internal enum MenuItems
+        public enum MenuItems
         {
             Iterations = 1,
-            DemoArayList = 2,
+            DemoArrayList = 2,
             TestEnums = 3,
+            Employees = 4,
             ExitProgram = 9,
         }
 
-        internal enum CarEngine
+        public enum EmployeeMenuItems
+        {
+            AddEmployee = 1,
+            RemoveEmployee = 2,
+            ModifyEmployee = 3,
+            SearchEmployee = 4,
+            ExitProgram = 9,
+        }
+
+        public enum CarEngine
         {
             Petrol = 1,
             Diesel,
@@ -25,8 +35,9 @@ namespace StartCsharp1.DataModels
             PluginHybrid
         }
 
-        internal enum  Gender 
+        public enum Gender
         {
+            None,
             Male,
             Female
         }

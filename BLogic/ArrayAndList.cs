@@ -96,7 +96,21 @@ namespace StartCsharp1.BLogic
             
             // Lambda expression
             List <int> numbersDividedByTen = numbersList.FindAll(x => (x % 10 == 0) || x == 100);
-
+            
+            numbersDividedByTen.ForEach(x => Console.WriteLine($"Valori divisibili per 10: {x}"));
         }
+
+        internal void StringManipulation()
+        {
+            string lordOfRing = "Lord of the Rings";
+            // this checke is case-insensitive 
+            Console.WriteLine(lordOfRing.Contains("Rings", StringComparison.OrdinalIgnoreCase));
+            Console.WriteLine(lordOfRing.IndexOf("of"));
+            Console.WriteLine(lordOfRing.Substring(lordOfRing.IndexOf("Lord") + 3));
+            
+            string[] words = lordOfRing.Split(' ');
+            Console.WriteLine(words);
+        }
+        
     }
 }
