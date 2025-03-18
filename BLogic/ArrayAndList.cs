@@ -92,6 +92,11 @@ namespace StartCsharp1.BLogic
         internal void PrintListValues()
         {
             Console.WriteLine($"La somma dei numeri in numbersArrayValues, vale: {numbersArrayValues.Sum()}");
+            Console.WriteLine($"La media dei numeri in numbersArrayValues, vale: {numbersArrayValues.Average()}");
+            
+            // Lambda expression
+            List <int> numbersDividedByTen = numbersList.FindAll(x => (x % 10 == 0) || x == 100);
+
         }
     }
 }
