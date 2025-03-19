@@ -150,7 +150,7 @@ namespace StartCsharp1.BLogic
                     switch ((MainEnumerators.EmployeeMenuItems)employeeMenuItems)
                     {
                         case MainEnumerators.EmployeeMenuItems.AddEmployee:
-                            //AddEmployee();
+                            EmployeeAdd();
                             break;
                         case MainEnumerators.EmployeeMenuItems.RemoveEmployee:
                             //RemoveEmployee();
@@ -159,7 +159,10 @@ namespace StartCsharp1.BLogic
                             //ModifyEmployee();
                             break;
                         case MainEnumerators.EmployeeMenuItems.SearchEmployee:
-                            //SearchEmployee(); //gestire dipendenti menu
+                            //SearchEmployee();
+                            break;
+                        case MainEnumerators.EmployeeMenuItems.ListEmployees:
+                            ShowEmployee();
                             break;
                         case MainEnumerators.EmployeeMenuItems.ExitProgram:
                             return;
@@ -255,10 +258,18 @@ namespace StartCsharp1.BLogic
             arrayAndList.StringManipulation();
         }
 
-        static void EmployeesHandler()
+        static void EmployeeAdd()
         {
             // creare un menu di gestione dei dipendenti 
             Employee employee = new();
+            employee.AddEmployee(employee);
+        }
+
+        static void ShowEmployee()
+        {
+            // creare un menu di gestione dei dipendenti 
+            Employee employee = new();
+            employee.ShowEmployee();
         }
 
         #endregion

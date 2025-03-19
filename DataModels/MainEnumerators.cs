@@ -23,6 +23,7 @@ namespace StartCsharp1.DataModels
             RemoveEmployee = 2,
             ModifyEmployee = 3,
             SearchEmployee = 4,
+            ListEmployees = 5,
             ExitProgram = 9,
         }
 
