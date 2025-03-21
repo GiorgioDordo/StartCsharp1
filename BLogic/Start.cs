@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
@@ -133,7 +134,9 @@ namespace StartCsharp1.BLogic
                 Console.WriteLine("1. Aggiungi dipendente");
                 Console.WriteLine("2. Elimina dipendente");
                 Console.WriteLine("3. Modifica dipendente");
-                Console.WriteLine("4. Visualizza dipendenti");
+                Console.WriteLine("4. Cerca dipendenti");
+                Console.WriteLine("5. Lista dipendente");
+                Console.WriteLine("6. Salva dipendenti");
                 Console.WriteLine("9. Esci");
                 Console.WriteLine();
                 Console.ForegroundColor = ConsoleColor.Blue;
@@ -153,7 +156,7 @@ namespace StartCsharp1.BLogic
                             EmployeeAdd();
                             break;
                         case MainEnumerators.EmployeeMenuItems.RemoveEmployee:
-                            //RemoveEmployee();
+                            RemoveEmployee();
                             break;
                         case MainEnumerators.EmployeeMenuItems.ModifyEmployee:
                             //ModifyEmployee();
@@ -163,6 +166,9 @@ namespace StartCsharp1.BLogic
                             break;
                         case MainEnumerators.EmployeeMenuItems.ListEmployees:
                             ShowEmployee();
+                            break;
+                        case MainEnumerators.EmployeeMenuItems.SaveEmployees:
+                            SaveEmployee();
                             break;
                         case MainEnumerators.EmployeeMenuItems.ExitProgram:
                             return;
@@ -250,6 +256,9 @@ namespace StartCsharp1.BLogic
             iterations.DoWhileIterations();
         }
 
+        /// <summary>
+        /// DemoArrayList
+        /// </summary>
         static void DemoArrayList()
         {
             ArrayAndList arrayAndList = new ArrayAndList();
@@ -258,6 +267,9 @@ namespace StartCsharp1.BLogic
             arrayAndList.StringManipulation();
         }
 
+        /// <summary>
+        /// EmployeeAdd
+        /// </summary>
         static void EmployeeAdd()
         {
             // creare un menu di gestione dei dipendenti 
@@ -265,11 +277,26 @@ namespace StartCsharp1.BLogic
             employee.AddEmployee(employee);
         }
 
+        /// <summary>
+        /// ShowEmployee
+        /// </summary>
         static void ShowEmployee()
         {
             // creare un menu di gestione dei dipendenti 
             Employee employee = new();
             employee.ShowEmployee();
+        }
+
+        static void SaveEmployee()
+        {
+            Employee employee = new();
+            employee.SaveEmployees();
+        }
+
+        static void RemoveEmployee()
+        {
+            Employee employee = new();
+            employee.RemoveEmployee(employee);
         }
 
         #endregion
